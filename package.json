@@ -1,8 +1,24 @@
 {
   "name": "tiptap-extension-resize-youtube",
-  "private": false,
   "version": "0.0.1",
+  "private": false,
   "type": "module",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -31,6 +47,10 @@
     "extension",
     "youtube",
     "resize",
-    "video"
+    "video",
+    "plugin",
+    "media",
+    "responsive",
+    "embed"
   ]
 }
