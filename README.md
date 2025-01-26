@@ -102,4 +102,4 @@ This project is open-source and available under the **MIT License**.
 Contributions are welcome! Feel free to open issues or submit pull requests.
 
 🚀 **Happy Coding!** 🚀
-![alt text](image.png)
+![Demo Image](https://raw.githubusercontent.com/anilkumarthakur60/tiptap-extension-resize-youtube/refs/heads/main/image.png)
