@@ -6,7 +6,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/package/index.ts"),
-      name: "tiptap-extension-resize-youtube",
+      name: "@anilkumarthakur/tiptap-extension-resize-youtube",
       fileName: (format) => `index.${format}.js`,
     },
     sourcemap: false,

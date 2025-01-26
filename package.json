@@ -1,5 +1,5 @@
 {
-  "name": "tiptap-extension-resize-youtube",
+  "name": "@anilkumarthakur/tiptap-extension-resize-youtube",
   "version": "0.0.1",
   "private": false,
   "type": "module",
