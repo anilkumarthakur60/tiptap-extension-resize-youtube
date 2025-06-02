@@ -28,7 +28,7 @@
     "format:check": "prettier --check src/"
   },
   "devDependencies": {
-    "@eslint/js": "^9.24.0",
+    "@eslint/js": "^9.28.0",
     "@types/node": "^22.14.1",
     "eslint": "^9.25.0",
     "globals": "^16.0.0",
