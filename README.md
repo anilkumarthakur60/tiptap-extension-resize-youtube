@@ -8,11 +8,18 @@ This extension enhances the default **TipTap YouTube extension** by introducing 
 
 ---
 
-## **Demo**
+## **Live Demo**
+
+👉 **Try it here:**
+[https://tiptap-extension-resize-youtube.vercel.app/](https://tiptap-extension-resize-youtube.vercel.app/)
+
+---
+
+## **Demo Preview**
 
 ![YouTube Video Resizer Demo](https://raw.githubusercontent.com/anilkumarthakur60/tiptap-extension-resize-youtube/refs/heads/main/image.png)
 
-_Interactive demo of the TipTap YouTube Resize Extension - Hover over videos to show controls, drag to resize, and use alignment buttons_
+_Hover over videos to show controls, drag to resize, and use alignment buttons_
 
 ---
 
@@ -32,29 +39,33 @@ _Interactive demo of the TipTap YouTube Resize Extension - Hover over videos to 
 
 ### **Step 1: Install the Extension**
 
-if you use npm:
+**npm**
 
 ```sh
 npm install @anilkumarthakur/tiptap-extension-resize-youtube
 ```
 
-if you use yarn:
+**yarn**
 
 ```sh
 yarn add @anilkumarthakur/tiptap-extension-resize-youtube
 ```
 
-if you use pnpm:
+**pnpm**
 
 ```sh
 pnpm add @anilkumarthakur/tiptap-extension-resize-youtube
 ```
 
-if you use bun:
+**bun**
 
 ```sh
 bun add @anilkumarthakur/tiptap-extension-resize-youtube
 ```
+
+---
+
+## **Usage**
 
 ### **Step 2: Import and Use in TipTap Editor**
 
@@ -79,44 +90,41 @@ new Editor({
 
 ---
 
-## **Usage**
+## **How It Works**
 
-- **Hover over** an embedded **YouTube video** to show **resize handles** and **alignment controls**.
-- **Drag the corner dots** to dynamically **resize** the iframe.
-- **Click alignment buttons** to move the video **left, center, or right**.
-- **Move mouse away** or **click outside the video** to hide the controls.
-- **Click on video** also works to show controls if needed.
+- **Hover over** an embedded YouTube video to show resize handles and alignment controls
+- **Drag the corner dots** to resize the iframe dynamically
+- **Click alignment buttons** to move the video left, center, or right
+- **Move mouse away** or **click outside** to hide controls
+- **Click on the video** also toggles controls
 
 ---
 
 ## **Why Use YoutubeResize?**
 
-Unlike the default TipTap **YouTube extension**, **YoutubeResize** provides a **visual and intuitive way** to resize and align YouTube videos **without manually adjusting HTML attributes**.
+Unlike the default TipTap **YouTube extension**, **YoutubeResize** provides a **visual and intuitive way** to resize and align YouTube videos **without manually editing HTML attributes**.
+
+Perfect for content editors, CMS tools, and rich-text platforms.
 
 ---
 
 ## **Compatibility**
 
-- Works with **Vue.js, React, Angular, and any framework** using TipTap.
-- Requires `@tiptap/extension-youtube` as a dependency.
+- Works with **Vue, React, Angular**, and any framework using TipTap
+- Requires `@tiptap/extension-youtube` as a dependency
 
 ---
 
 ## **License**
 
-This project is open-source and available under the **MIT License**.
+MIT License — free to use in commercial and open-source projects.
 
 ---
 
 ## **Contributing**
 
-Contributions are welcome! Feel free to open issues or submit pull requests.
-
----
-
-## **Demo Image**
-
-![YouTube Video Resizer Demo](https://raw.githubusercontent.com/anilkumarthakur60/tiptap-extension-resize-youtube/refs/heads/main/image.png)
+Contributions are welcome!
+Feel free to open issues or submit pull requests.
 
 ---
 
