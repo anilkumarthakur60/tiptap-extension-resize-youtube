@@ -4,10 +4,8 @@ layout: home
 hero:
   name: 'TipTap YouTube Resize'
   text: 'Resizable YouTube Embed Extension'
-  tagline: 'Drag controls and alignment options for TipTap editor'
-  image:
-    src: /logo.svg
-    alt: TipTap YouTube Resize
+  tagline: 'Hover to show controls, drag to resize, align with ease'
+
   actions:
     - theme: brand
       text: Get Started
@@ -17,6 +15,8 @@ hero:
       link: https://github.com/anilkumarthakur60/tiptap-extension-resize-youtube
 
 features:
+  - title: 'Hover to Show'
+    details: 'Smart controls appear on hover for a clean, clutter-free interface'
   - title: 'Easy Resizing'
     details: 'Intuitive drag controls to resize embedded YouTube videos with ease'
   - title: 'Alignment Options'
@@ -27,6 +27,8 @@ features:
     details: 'Seamlessly integrates with TipTap editor extensions ecosystem'
   - title: 'Production Ready'
     details: 'Battle-tested with comprehensive examples and full documentation'
-  - title: 'MIT Licensed'
-    details: 'Open source and free to use in your projects'
 ---
+
+## Interactive Demo
+
+![YouTube Video Resizer Demo](https://raw.githubusercontent.com/anilkumarthakur60/tiptap-extension-resize-youtube/refs/heads/main/image.png)

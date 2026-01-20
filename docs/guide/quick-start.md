@@ -2,6 +2,10 @@
 
 Get up and running with TipTap YouTube Resize in minutes.
 
+## Demo
+
+![YouTube Video Resizer Demo](https://raw.githubusercontent.com/anilkumarthakur60/tiptap-extension-resize-youtube/refs/heads/main/image.png)
+
 ## Basic Usage
 
 ```typescript
@@ -40,7 +44,9 @@ const editor = useEditor({
 
 ## Key Features
 
-- 🎯 **Drag to Resize**: Click and drag video corners or edges to resize
+- 🎯 **Hover to Show**: Move your mouse over videos to reveal resize handles and alignment controls
+- 🖱️ **Click Support**: Can also click videos to show controls
+- 🔄 **Drag to Resize**: Click and drag video corners to resize
 - 📍 **Alignment Control**: Align videos to left, center, or right
 - ⌨️ **Keyboard Support**: Full keyboard accessibility
 - 🎨 **Responsive Design**: Videos scale properly on all devices

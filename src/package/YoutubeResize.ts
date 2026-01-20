@@ -77,7 +77,7 @@ export const YoutubeResize = Youtube.extend({
 
         const $positionController: HTMLDivElement = document.createElement('div')
         $positionController.style.cssText =
-          'position: absolute; top: -40px; left: 50%; transform: translateX(-50%); width: 90px; height: 30px; z-index: 999; background-color: rgba(255, 255, 255, 0.8); border-radius: 4px; border: 1px solid #6C6C6C; display: flex; justify-content: space-around; align-items: center; padding: 5px;'
+          'position: absolute; top: -0px; left: 50%; transform: translateX(-50%); width: 90px; height: 30px; z-index: 999; background-color: rgba(255, 255, 255, 0.8); border-radius: 4px; border: 1px solid #6C6C6C; display: flex; justify-content: space-around; align-items: center; padding: 5px;'
 
         const alignments: AlignmentControl[] = [
           {
@@ -198,10 +198,31 @@ export const YoutubeResize = Youtube.extend({
         addResizeDots()
       })
 
+      // Hover to Show Controls
+      $container.addEventListener('mouseenter', (): void => {
+        createAlignmentControls()
+        addResizeDots()
+      })
+
+      // Hide Controls on Mouse Leave
+      $container.addEventListener('mouseleave', (): void => {
+        $container.querySelectorAll('div').forEach((el: Element) => {
+          if (el !== $container && el !== $iframe) {
+            el.remove()
+          }
+        })
+        $container.dataset.alignmentActive = ''
+        $container.dataset.resizeActive = ''
+      })
+
       // Hide Controls on Outside Click
       document.addEventListener('click', (e: MouseEvent): void => {
         if (!$container.contains(e.target as Node)) {
-          $container.querySelectorAll('div').forEach((el: Element) => el.remove())
+          $container.querySelectorAll('div').forEach((el: Element) => {
+            if (el !== $container && el !== $iframe) {
+              el.remove()
+            }
+          })
           $container.dataset.alignmentActive = ''
           $container.dataset.resizeActive = ''
         }
