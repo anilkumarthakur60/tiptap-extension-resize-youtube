@@ -1,4 +1,5 @@
-<script setup lang="ts">
+
+  <script setup lang="ts">
 import { useEditor, EditorContent } from '@tiptap/vue-3'
 import StarterKit from '@tiptap/starter-kit'
 import Youtube from '@tiptap/extension-youtube'
@@ -9,102 +10,269 @@ const editor = useEditor({
     StarterKit,
     Youtube.configure({
       controls: true,
-      nocookie: true
+      nocookie: true,
     }),
-    YoutubeResize
+    YoutubeResize,
   ],
-  content: ``
+  content: `
+    <h2>Try resizing a YouTube video</h2>
+    <p>Click the video once, then drag the corner/edge handles to resize it.</p>
+    <p>You can also insert a sample video using the button above.</p>
+  `,
 })
+
+function addSampleVideo() {
+  editor.value?.chain().focus().setYoutubeVideo({
+    src: 'https://youtu.be/LitG4iAs_C0',
+    width: 560,
+    height: 315,
+  }).run()
+}
+
 </script>
 
 <template>
-  <div class="demo-container">
-    <header class="demo-header">
-      <h1>YouTube Video Resizer</h1>
-      <p class="subtitle">Interactive demo of the Tiptap YouTube Resize Extension</p>
-    </header>
-    
-    <div class="editor-wrapper">
-      <div class="toolbar">
-        <h3>Editor</h3>
-        <p class="instructions">Click and drag the corner or edge handles on the video to resize it</p>
-      </div>
-      <EditorContent :editor="editor" class="editor" />
+  <div class="page">
+    <div class="shell">
+      <header class="hero">
+        <div class="hero__text">
+          <h1>YouTube Video Resizer</h1>
+          <p class="subtitle">
+            Interactive demo of the Tiptap YouTube Resize Extension
+          </p>
+        </div>
+
+        <div class="hero__actions">
+          <button class="btn btn--primary" type="button" @click="addSampleVideo">
+            Insert sample video
+          </button>
+        </div>
+      </header>
+
+      <main class="grid">
+        <section class="card">
+          <div class="card__head">
+            <div>
+              <h3>Editor</h3>
+              <p class="muted">
+                Click the video, then drag the corner/edge handles to resize.
+              </p>
+            </div>
+
+            <div class="badge">Resizable</div>
+          </div>
+
+          <div class="editorWrap">
+            <EditorContent :editor="editor" class="editor" />
+          </div>
+        </section>
+
+        <aside class="card card--side">
+          <div class="card__head">
+            <h3>Tips</h3>
+          </div>
+
+          <ul class="tips">
+            <li>Click the video once to show resize handles.</li>
+            <li>Drag corners to keep proportion, edges for free resize (if supported).</li>
+            <li>Try different widths to test responsive behavior.</li>
+          </ul>
+
+          <div class="divider"></div>
+
+          <p class="muted small">
+            You can paste a YouTube URL directly if your extension supports it, or insert via command.
+          </p>
+        </aside>
+      </main>
     </div>
   </div>
 </template>
-<!-- 
+
 <style scoped>
-.demo-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+/* ---- Page background ---- */
+.page{
+  min-height:100vh;
+  padding:32px 16px;
+  background:
+    radial-gradient(1200px 600px at 20% 0%, rgba(99,102,241,.18), transparent 60%),
+    radial-gradient(900px 500px at 90% 10%, rgba(16,185,129,.14), transparent 55%),
+    radial-gradient(800px 500px at 40% 100%, rgba(236,72,153,.12), transparent 60%),
+    #0b1020;
+  color:#e5e7eb;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
 }
 
-.demo-header {
-  text-align: center;
-  margin-bottom: 3rem;
-  border-bottom: 2px solid #e5e7eb;
-  padding-bottom: 2rem;
+.shell{
+  max-width:1100px;
+  margin:0 auto;
 }
 
-.demo-header h1 {
-  margin: 0;
-  font-size: 2.5rem;
-  color: #1f2937;
-  font-weight: 700;
+/* ---- Header ---- */
+.hero{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:16px;
+  padding:24px;
+  border-radius:18px;
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+  border:1px solid rgba(255,255,255,.10);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 60px rgba(0,0,0,.35);
 }
 
-.subtitle {
-  margin: 0.5rem 0 0 0;
-  color: #6b7280;
-  font-size: 1rem;
+.hero h1{
+  margin:0;
+  font-size:28px;
+  letter-spacing:.2px;
 }
 
-.editor-wrapper {
-  background: #fafafa;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
+.subtitle{
+  margin:8px 0 0;
+  color: rgba(229,231,235,.8);
+  line-height:1.4;
+}
+
+.hero__actions{
+  display:flex;
+  gap:10px;
+}
+
+/* ---- Grid ---- */
+.grid{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns: 1.7fr .9fr;
+  gap:16px;
+}
+
+@media (max-width: 900px){
+  .grid{ grid-template-columns: 1fr; }
+  .hero{ align-items:flex-start; flex-direction:column; }
+}
+
+/* ---- Cards ---- */
+.card{
+  border-radius:18px;
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow: 0 18px 50px rgba(0,0,0,.25);
+  overflow:hidden;
+}
+
+.card__head{
+  padding:16px 16px 12px;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.04);
+}
+
+.card__head h3{
+  margin:0;
+  font-size:16px;
+  font-weight:700;
+}
+
+.muted{
+  margin:6px 0 0;
+  color: rgba(229,231,235,.75);
+  font-size:13px;
+}
+
+.small{ font-size:12px; }
+
+/* ---- Badge ---- */
+.badge{
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:12px;
+  color:#dbeafe;
+  background: rgba(59,130,246,.18);
+  border:1px solid rgba(59,130,246,.35);
+}
+
+/* ---- Buttons ---- */
+.btn{
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  color:#e5e7eb;
+  padding:10px 12px;
+  border-radius:12px;
+  font-weight:600;
+  cursor:pointer;
+  transition: transform .08s ease, background .15s ease, border-color .15s ease;
+}
+
+.btn:hover{
+  background: rgba(255,255,255,.10);
+  border-color: rgba(255,255,255,.22);
+}
+
+.btn:active{ transform: translateY(1px); }
+
+.btn--primary{
+  background: linear-gradient(135deg, rgba(99,102,241,.95), rgba(59,130,246,.92));
+  border-color: rgba(99,102,241,.65);
+}
+
+/* ---- Editor ---- */
+.editorWrap{
+  padding:16px;
+}
+
+.editor{
+  min-height: 340px;
+  border-radius: 14px;
+  padding: 14px 14px;
+  background: rgba(3,7,18,.55);
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+/* Tiptap adds ProseMirror class internally */
+.editor :deep(.ProseMirror){
+  outline:none;
+  min-height: 310px;
+  line-height: 1.6;
+  color: #f3f4f6;
+}
+
+.editor :deep(.ProseMirror p){
+  margin: 0 0 12px;
+}
+
+.editor :deep(.ProseMirror h2){
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+
+.editor :deep(.ProseMirror a){
+  color: #93c5fd;
+  text-decoration: underline;
+}
+
+/* Make YouTube embeds look nicer */
+.editor :deep(.ProseMirror .youtube){
+  border-radius: 14px;
   overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,.35);
 }
 
-.toolbar {
-  padding: 1.5rem;
-  background: white;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.toolbar h3 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1rem;
-  color: #1f2937;
-  font-weight: 600;
-}
-
-.instructions {
-  margin: 0;
-  font-size: 0.875rem;
-  color: #6b7280;
-}
-
-.editor {
-  padding: 2rem;
-  min-height: 400px;
-}
-
-.editor :deep() h2 {
-  color: #1f2937;
-  margin-top: 0;
-}
-
-.editor :deep() p {
-  color: #374151;
+/* ---- Sidebar tips ---- */
+.tips{
+  margin: 10px 16px 16px;
+  padding-left: 18px;
+  color: rgba(229,231,235,.85);
+  font-size: 13px;
   line-height: 1.6;
 }
 
-.editor :deep() iframe {
-  border-radius: 4px;
-  max-width: 100%;
+.divider{
+  height:1px;
+  margin: 12px 16px;
+  background: rgba(255,255,255,.10);
 }
-</style> -->
+</style>

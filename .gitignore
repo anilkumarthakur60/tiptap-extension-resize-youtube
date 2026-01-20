@@ -29,3 +29,13 @@ example/dist
 example/dist-ssr
 example/.vite
 example/package-lock.json
+
+
+
+# Vite cache
+.vitepress/
+!docs/.vitepress/theme/
+
+# VitePress
+docs/.vitepress/cache
+docs/.vitepress/dist
