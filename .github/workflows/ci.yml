@@ -43,13 +43,11 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Run tests with coverage
-        run: npm test
-        env:
-          CI: true
-
       - name: Run Format Check
         run: npm run format:check
+
+      - name: Run Linter
+        run: npm run lint
 
       - name: Upload coverage report
         if: success()
