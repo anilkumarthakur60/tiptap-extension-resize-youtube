@@ -87,6 +87,12 @@ Add CSS to style the resizable YouTube wrapper:
 .tiptap-youtube-resizable iframe {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+/* Hover effect - make it more prominent on hover */
+.tiptap-youtube-resizable:hover iframe {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .tiptap-youtube-resize-handle {
@@ -99,6 +105,20 @@ Add CSS to style the resizable YouTube wrapper:
   right: 0;
 }
 ```
+
+## Interactive Behavior
+
+The extension provides an intuitive user experience:
+
+1. **Hover Over Video** - Move your mouse over any embedded YouTube video to reveal:
+   - Resize handles (corner dots)
+   - Alignment controls (left, center, right)
+
+2. **Resize Video** - Drag the corner handles to adjust dimensions
+
+3. **Align Video** - Click alignment buttons to position the video
+
+4. **Hide Controls** - Move your mouse away or click outside to hide controls
 
 ## Next Steps
 

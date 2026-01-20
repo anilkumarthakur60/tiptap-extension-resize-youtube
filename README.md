@@ -8,11 +8,21 @@ This extension enhances the default **TipTap YouTube extension** by introducing 
 
 ---
 
+## **Demo**
+
+![YouTube Video Resizer Demo](https://raw.githubusercontent.com/anilkumarthakur60/tiptap-extension-resize-youtube/refs/heads/main/image.png)
+
+_Interactive demo of the TipTap YouTube Resize Extension - Hover over videos to show controls, drag to resize, and use alignment buttons_
+
+---
+
 ## **Features**
 
 ✅ **Resizable YouTube Iframes** – Drag corners to resize  
 ✅ **Alignment Controls** – Align videos left, center, or right  
-✅ **Auto-Hide UI** – Controls appear only on selection  
+✅ **Hover to Show Controls** – Controls appear on hover for a clean UI  
+✅ **Click Support** – Click to also show/hide controls  
+✅ **Auto-Hide UI** – Controls hide when mouse leaves or outside click  
 ✅ **Seamless TipTap Integration** – Works with existing YouTube embeds  
 ✅ **Framework Agnostic** – Compatible with Vue, React, Angular, and more
 
@@ -71,10 +81,11 @@ new Editor({
 
 ## **Usage**
 
-- Click on an embedded **YouTube video** to activate **resize handles** and **alignment controls**.
+- **Hover over** an embedded **YouTube video** to show **resize handles** and **alignment controls**.
 - **Drag the corner dots** to dynamically **resize** the iframe.
 - **Click alignment buttons** to move the video **left, center, or right**.
-- **Click outside the video** to hide the controls.
+- **Move mouse away** or **click outside the video** to hide the controls.
+- **Click on video** also works to show controls if needed.
 
 ---
 
@@ -101,5 +112,12 @@ This project is open-source and available under the **MIT License**.
 
 Contributions are welcome! Feel free to open issues or submit pull requests.
 
+---
+
+## **Demo Image**
+
+![YouTube Video Resizer Demo](https://raw.githubusercontent.com/anilkumarthakur60/tiptap-extension-resize-youtube/refs/heads/main/image.png)
+
+---
+
 🚀 **Happy Coding!** 🚀
-![Demo Image](https://raw.githubusercontent.com/anilkumarthakur60/tiptap-extension-resize-youtube/refs/heads/main/image.png)
