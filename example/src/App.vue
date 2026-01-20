@@ -33,7 +33,7 @@ const editor = useEditor({
     </div>
   </div>
 </template>
-
+<!-- 
 <style scoped>
 .demo-container {
   max-width: 900px;
@@ -107,4 +107,4 @@ const editor = useEditor({
   border-radius: 4px;
   max-width: 100%;
 }
-</style>
+</style> -->
