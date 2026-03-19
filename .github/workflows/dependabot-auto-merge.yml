@@ -18,6 +18,9 @@ jobs:
         with:
           github-token: '${{ secrets.GITHUB_TOKEN }}'
 
+      - name: Install GitHub CLI
+        run: sudo apt-get update && sudo apt-get install -y gh
+
       - name: Enable auto-merge for Dependabot PRs
         run: gh pr merge --auto --squash "$PR_URL"
         env:
