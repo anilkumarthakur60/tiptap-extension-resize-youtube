@@ -10,7 +10,6 @@ on:
 permissions:
   contents: read
 
-# ✅ Cancel older runs of THIS workflow on the same branch/ref
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -64,7 +63,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
 
       - name: Install dependencies
@@ -80,6 +79,7 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+      actions: write
     steps:
       - name: Dependabot metadata
         id: metadata
@@ -87,8 +87,19 @@ jobs:
         with:
           github-token: '${{ secrets.GITHUB_TOKEN }}'
 
-      - name: Enable auto-merge for Dependabot PRs
-        run: gh pr merge --auto --squash "$PR_URL"
+      # Tests have already passed (needs: above), so merge directly.
+      # `--auto` requires branch protection with required checks on main.
+      # Major updates are left open for manual review.
+      - name: Merge Dependabot PR (patch/minor only)
+        if: steps.metadata.outputs.update-type != 'version-update:semver-major'
+        run: gh pr merge --squash "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Merges made with GITHUB_TOKEN don't fire `push` workflows, so trigger the docs deploy explicitly.
+      - name: Redeploy docs
+        if: steps.metadata.outputs.update-type != 'version-update:semver-major'
+        run: gh workflow run deploy-docs.yml --ref main -R "$GITHUB_REPOSITORY"
+        env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
